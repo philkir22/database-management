@@ -41,4 +41,4 @@ WHERE a.city = 'New York';
 SELECT o.ordnum, o.totalUSD
 FROM orders o INNER JOIN products p ON o.pid = p.pid
 	          INNER JOIN customers c ON o.cid = c.cid
-WHERE o.totalUSD = (p.priceUSD * o.qty) - ((p.priceUSD * o.qty) * c.discount / 100)
+WHERE o.totalUSD <> (p.priceUSD * o.qty) - ((p.priceUSD * o.qty) * c.discount / 100)
