@@ -45,28 +45,28 @@ CREATE TABLE Directors(
 
 --ScreenActorsGuild
 CREATE TABLE ScreenActorsGuild(
-	pid                 INT NOT NULL REFERENCES People(pid),
+	pid                 INT NOT NULL REFERENCES Actors(pid),
 	anneversaryDate     DATETIME,
 	PRIMARY KEY(pid)
 );
 
 --DirectorsGuild
 CREATE TABLE DirectorsGuild(
-	pid                 INT NOT NULL REFERENCES People(pid),
+	pid                 INT NOT NULL REFERENCES Directors(pid),
 	anneversaryDate     DATETIME,
 	PRIMARY KEY(pid)
 );
 
 --Marriages
 CREATE TABLE Marriages(
-	pid           INT NOT NULL REFERENCESPeople(pid),
+	pid           INT NOT NULL REFERENCES People(pid),
 	spouseName    TEXT,
 	PRIMARY KEY(pid)
 );
 
 --MovieActors
 CREATE TABLE MovieActors(
-	pid     INT NOT NULL REFERENCES People(pid),
+	pid     INT NOT NULL REFERENCES Actors(pid),
 	movid   INT NOT NULL REFERENCES Movies(movid),
 	role    TEXT,
 	PRIMARY KEY(pid, movid)
@@ -74,7 +74,7 @@ CREATE TABLE MovieActors(
 
 --MovieDirectors
 CREATE TABLE MovieDirectors(
-	pid     INT NOT NULL REFERENCES People(pid),
+	pid     INT NOT NULL REFERENCES Directors(pid),
 	movid   INT NOT NULL REFERENCES Movies(movid),
 	PRIMARY KEY(pid, movid)
 );
